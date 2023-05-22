@@ -1,10 +1,15 @@
-[build]
-target = "./index.html"
+#[build]
+#target = "./index.html"
 
-[watch]
-ignore = ["./src-tauri"]
+#[watch]
+#ignore = ["./src-tauri"]
 
-[serve]
-address = "127.0.0.1"
-port = 1420
-open = false
+#[serve]
+#address = "127.0.0.1"
+#port = 1420
+#open = false
+
+[[hooks]]
+stage = "pre_build"
+command = "powershell"
+command_arguments = ["-c", "npx tailwindcss -i input.css -o style/output.css"]
